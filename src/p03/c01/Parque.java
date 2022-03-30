@@ -43,9 +43,27 @@ public class Parque implements IParque {
 
 	}
 
-	//
-	// TODO Método salirDelParque
-	//
+	@Override
+	public void salirDelParque(String puerta) {
+
+		if (contadoresPersonasPuerta.get(puerta) == null) {
+			contadoresPersonasPuerta.remove(puerta);
+		}
+
+		comprobarAntesDeSalir();
+
+		contadorPersonasTotales--;
+		contadoresPersonasPuerta.put(puerta, contadoresPersonasPuerta.get(puerta) - 1);
+
+		sumarContadoresPuerta();
+
+		imprimirInfo(puerta, "Salida");
+
+		this.notifyAll();
+
+		checkInvariante();
+
+	}
 
 	private void imprimirInfo(String puerta, String movimiento) {
 		System.out.println(movimiento + " por puerta " + puerta);
