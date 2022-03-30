@@ -94,7 +94,7 @@ public class Parque implements IParque {
 
 	}
 
-	protected void comprobarAntesDeEntrar() { // TODO
+	protected void comprobarAntesDeEntrar() { 
 		while (contadorPersonasTotales == espacioMax) {
 			try {
 				this.wait();
@@ -104,7 +104,7 @@ public class Parque implements IParque {
 		}
 	}
 
-	protected void comprobarAntesDeSalir() { // TODO
+	protected void comprobarAntesDeSalir() { 
 		while (contadorPersonasTotales == 0) {
 			try {
 				this.wait();
