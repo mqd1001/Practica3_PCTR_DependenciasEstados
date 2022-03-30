@@ -45,22 +45,29 @@ public class Parque implements IParque {
 
 	@Override
 	public void salirDelParque(String puerta) {
-
+		
+		//Salida del parque
 		if (contadoresPersonasPuerta.get(puerta) == null) {
 			contadoresPersonasPuerta.remove(puerta);
 		}
-
+		
+		//Comprobacion 
 		comprobarAntesDeSalir();
-
+		
+		//Disminuimos contador
 		contadorPersonasTotales--;
 		contadoresPersonasPuerta.put(puerta, contadoresPersonasPuerta.get(puerta) - 1);
 
+		//Sumamos contador 
 		sumarContadoresPuerta();
 
+		//Sacamos información por pantalla
 		imprimirInfo(puerta, "Salida");
 
+		//Notificamos a todos los hilos
 		this.notifyAll();
 
+		//Comprobamos invariante
 		checkInvariante();
 
 	}
