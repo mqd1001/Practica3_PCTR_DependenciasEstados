@@ -1,9 +1,12 @@
 package src.p03.c01;
 
+
+
 public class SistemaLanzador {
 	public static void main(String[] args) {
 		
-		IParque parque = new Parque(); // TODO
+		int personasMax = 50;		
+		IParque parque = new Parque(personasMax); 
 		char letra_puerta = 'A';
 		
 		System.out.println("¡Parque abierto!");
@@ -20,7 +23,7 @@ public class SistemaLanzador {
 			ActividadSalidaPuerta salidas = new ActividadSalidaPuerta(puerta, parque);
 			
 			//Lanzamiento de los hilos entradas y salidas
-			new Thread (entradas).start();
+			//new Thread (entradas).start();
 			new Thread (salidas).start();
 			
 			
